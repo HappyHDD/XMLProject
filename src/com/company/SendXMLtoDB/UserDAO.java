@@ -40,7 +40,7 @@ public class UserDAO {
             String sql = "INSERT into user_table value ('"+user.getId()+"', '"+user.getFirstName()+"', '"+user.getLastName()+"', '"+user.getDescription()+"')";
             Statement statement = connection.createStatement();
             int rows = statement.executeUpdate(sql);
-            System.out.println("Вставка" + rows + " успешна произведенна");
+            System.out.println("Вставка " + rows + "строк успешна произведенна");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -52,13 +52,13 @@ public class UserDAO {
     public void insertUser(List<User> userList){
         try {
             StringBuilder sql = new StringBuilder("INSERT into user_table values");
-            for (int i = 0; i < userList.size(); i++) {
-                sql.append(userSQL(userList.get(i)));
+            for (User user : userList) {
+                sql.append(userSQL(user));
                 sql.append(",");
             }
             sql.deleteCharAt(sql.length()-1);
             int rows = connection.createStatement().executeUpdate(sql.toString());
-            System.out.println("Вставка" + rows + " успешна произведенна");
+            System.out.println("Вставка " + rows + "строк успешна произведенна");
         } catch (SQLException e) {
             e.printStackTrace();
         }
