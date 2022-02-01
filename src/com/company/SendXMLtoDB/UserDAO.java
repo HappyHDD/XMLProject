@@ -40,7 +40,7 @@ public class UserDAO {
             String sql = "INSERT into user_table value ('"+user.getId()+"', '"+user.getFirstName()+"', '"+user.getLastName()+"', '"+user.getDescription()+"')";
             Statement statement = connection.createStatement();
             int rows = statement.executeUpdate(sql);
-            System.out.println("Вставка " + rows + "строк успешна произведенна");
+            System.out.println("Вставка " + rows + " строк успешна произведенна");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -58,7 +58,7 @@ public class UserDAO {
             }
             sql.deleteCharAt(sql.length()-1);
             int rows = connection.createStatement().executeUpdate(sql.toString());
-            System.out.println("Вставка " + rows + "строк успешна произведенна");
+            System.out.println("Вставка " + rows + " строк успешна произведенна");
         } catch (SQLException e) {
             e.printStackTrace();
         }
